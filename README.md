@@ -9,7 +9,7 @@ https://luminscience.io
 Local working folder:
 
 ```text
-/Users/jojo/Library/CloudStorage/OneDrive-Personal/Lumina/DEMOS/LuminScience.io
+/Users/jojo/Library/CloudStorage/OneDrive-Personal/Lumina/PROJECTS/LuminScience.io
 ```
 
 GitHub remote:
