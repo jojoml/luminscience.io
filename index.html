@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#070a12;color:#e8ecf6;font-family:'Space Grotesk',system-ui,sans-serif}
+::selection{background:rgba(89,216,255,.28)}
+</style>
+</helmet>
+
+<div style="width:100%;min-height:100vh;background:#070a12;overflow-x:hidden">
+
+  <!-- ===== top nav ===== -->
+  <nav style="position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;pointer-events:none">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;letter-spacing:.03em;color:rgba(232,236,246,.85);pointer-events:auto">
+      <svg width="16" height="18" viewBox="0 0 20 22" fill="none"><path d="M4 1 C16 5,16 9,4 13 C16 17,16 20,4 21" stroke="#37f0a0" stroke-width="1.6" stroke-linecap="round"></path><path d="M16 1 C4 5,4 9,16 13 C4 17,4 20,16 21" stroke="#ff5c9a" stroke-width="1.6" stroke-linecap="round" opacity=".85"></path></svg>
+      <span>Lumin<span style="color:#37f0a0">Lab</span></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:rgba(130,141,169,.9);pointer-events:auto">
+      <a href="#demos" style="color:inherit;text-decoration:none" style-hover="color:#e8ecf6">DEMOS</a>
+      <a href="#early-pilot" style="color:#37f0a0;text-decoration:none;border:1px solid rgba(55,240,160,.4);border-radius:7px;padding:7px 14px;background:rgba(55,240,160,.06)" style-hover="background:rgba(55,240,160,.15)">EARLY PILOT</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO (2a) ===== -->
+  <section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background-image:radial-gradient(130% 100% at 62% 46%, rgba(22,32,64,.55), transparent 72%),linear-gradient(rgba(126,146,196,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(126,146,196,.06) 1px, transparent 1px);background-size:auto,50px 50px,50px 50px;background-color:#070a12">
+    <x-import component-from-global-scope="mobius-hero" from="./mobius3d.js" variant="hero" stations="1" cx="0.63" cy="0.5" zoom="1.06" hudpos="br" spin="{{ spin }}" hud="{{ hudAttr }}" bands="{{ bands }}" grow="{{ grow }}" letters="{{ lettersAttr }}" artifacts="{{ artifacts }}" count="{{ artifactCount }}" speed="{{ artifactSpeed }}" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    <div style="position:absolute;left:8%;top:50%;transform:translateY(-50%);max-width:560px;z-index:3;display:flex;flex-direction:column;gap:28px;pointer-events:none">
+      <h1 style="margin:0;font-size:88px;line-height:1;font-weight:700;letter-spacing:-.02em">Lumin<span style="background:linear-gradient(100deg,#37f0a0,#59d8ff 70%,#ff5c9a);-webkit-background-clip:text;background-clip:text;color:transparent">Lab</span></h1>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#a7b1c9;max-width:430px;text-wrap:pretty">We build the next generation AI infrastructure for Bio&#8209;Chemical Science with recursive AI.</p>
+      <div style="display:flex;gap:14px;align-items:center;pointer-events:auto">
+        <a href="#early-pilot" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#07120c;background:#37f0a0;border-radius:9px;padding:13px 24px;text-decoration:none;font-weight:600" style-hover="background:#5cf5b4">EARLY PILOT</a>
+        <a href="#demos" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#e8ecf6;border:1px solid rgba(126,146,196,.3);border-radius:9px;padding:12px 22px;text-decoration:none" style-hover="border-color:rgba(89,216,255,.55);color:#fff">LEARN MORE →</a>
+      </div>
+    </div>
+    <a href="#demos" style="position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.22em;color:rgba(130,141,169,.75);text-decoration:none" style-hover="color:#e8ecf6">
+      <span>DEMOS</span>
+      <span style="font-size:14px">↓</span>
+    </a>
+  </section>
+
+  <!-- ===== DEMO SECTION ===== -->
+  <section id="demos" data-screen-label="Demos" style="position:relative;padding:110px 8% 128px;background:#080b14;border-top:1px solid rgba(126,146,196,.1)">
+    <div style="max-width:1180px;margin:0 auto">
+
+      <!-- section header -->
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:52px">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:640px">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.24em;color:#59d8ff">USE CASES · IN THE LOOP</div>
+          <h2 style="margin:0;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:46px;line-height:1.08;letter-spacing:-.02em">The co-scientist, at the bench.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#828da9;max-width:520px">Four capabilities running today across imaging, behavior, omics, and pharmacology — each one a loop that sharpens itself on your data.</p>
+        </div>
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#4a5578;text-align:right;line-height:1.9">04 CAPABILITIES<br>LIVE PIPELINES</div>
+      </div>
+
+      <!-- ---------- LAYOUT: SHOWCASE (center-frame carousel) ---------- -->
+      <sc-if value="{{ isShowcase }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:34px">
+          <div style="position:relative;width:100%;display:flex;align-items:center;justify-content:center">
+            <button onClick="{{ goPrev }}" aria-label="Previous demo" style="all:unset;cursor:pointer;position:absolute;left:0;z-index:6;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(126,146,196,.28);background:rgba(9,13,22,.78);backdrop-filter:blur(8px);color:#e8ecf6;font-size:26px;font-weight:300;line-height:0;padding-bottom:3px" style-hover="border-color:rgba(89,216,255,.6);background:rgba(9,13,22,.98)">‹</button>
+            <div style="position:relative;width:100%;max-width:940px;height:432px">
+              <sc-for list="{{ demos }}" as="d" hint-placeholder-count="4">
+                <div onClick="{{ d.onSelect }}" style="position:absolute;top:0;left:50%;width:768px;margin-left:-384px;height:100%;transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .5s,filter .5s;{{ d.frameStyle }}">
+                  <div style="position:relative;width:100%;height:100%;border-radius:18px;overflow:hidden;border:1px solid rgba(126,146,196,.18);background:#05070d;box-shadow:0 34px 90px rgba(0,0,0,.6)">
+                    <video data-demo autoplay loop muted playsinline preload="auto" src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+                    <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px {{ d.glowInset }}"></div>
+                    <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;color:#e8ecf6;background:rgba(5,7,13,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 12px">
+                      <span style="width:6px;height:6px;border-radius:50%;background:{{ d.color }};box-shadow:0 0 8px {{ d.color }}"></span>LIVE
+                    </div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <button onClick="{{ goNext }}" aria-label="Next demo" style="all:unset;cursor:pointer;position:absolute;right:0;z-index:6;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(126,146,196,.28);background:rgba(9,13,22,.78);backdrop-filter:blur(8px);color:#e8ecf6;font-size:26px;font-weight:300;line-height:0;padding-bottom:3px" style-hover="border-color:rgba(89,216,255,.6);background:rgba(9,13,22,.98)">›</button>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;max-width:600px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;font-weight:600;color:{{ active.color }}">{{ active.n }}</span>
+              <h3 style="margin:0;font-size:28px;font-weight:600;letter-spacing:-.01em;color:#f2f5fb">{{ active.name }}</h3>
+            </div>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:#98a2ba">{{ active.desc }}</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:2px">
+              <sc-for list="{{ active.tags }}" as="t" hint-placeholder-count="3">
+                <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;color:#828da9;border:1px solid rgba(126,146,196,.24);border-radius:5px;padding:5px 9px">{{ t }}</span>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:9px;align-items:center">
+            <sc-for list="{{ demos }}" as="d" hint-placeholder-count="4">
+              <button onClick="{{ d.onSelect }}" aria-label="{{ d.name }}" style="all:unset;cursor:pointer;height:8px;width:{{ d.dotW }};border-radius:4px;background:{{ d.dotBg }};transition:all .35s"></button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ---------- LAYOUT: ROWS (alternating) ---------- -->
+      <sc-if value="{{ isRows }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:64px">
+          <sc-for list="{{ demos }}" as="d" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;direction:{{ d.rowDir }}">
+              <div style="direction:ltr;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid rgba(126,146,196,.16);background:#05070d;box-shadow:0 24px 64px rgba(0,0,0,.45)">
+                <video data-demo autoplay loop muted playsinline src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+                <div style="position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px {{ d.glowInset }}"></div>
+              </div>
+              <div style="direction:ltr;display:flex;flex-direction:column;gap:18px">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;font-weight:600;color:{{ d.color }}">{{ d.n }}</span>
+                  <span style="height:1px;width:40px;background:{{ d.glowInset }}"></span>
+                </div>
+                <h3 style="margin:0;font-size:30px;font-weight:600;letter-spacing:-.01em;color:#f2f5fb">{{ d.name }}</h3>
+                <p style="margin:0;font-size:15px;line-height:1.65;color:#98a2ba;max-width:420px">{{ d.desc }}</p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:2px">
+                  <sc-for list="{{ d.tags }}" as="t" hint-placeholder-count="3">
+                    <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;color:#828da9;border:1px solid rgba(126,146,196,.24);border-radius:5px;padding:5px 9px">{{ t }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <!-- ===== early pilot CTA ===== -->
+  <section id="early-pilot" data-screen-label="Early pilot" style="position:relative;padding:100px 8% 120px;background:#070a12;border-top:1px solid rgba(126,146,196,.1);text-align:center">
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px">
+      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.24em;color:#59d8ff">JOIN THE LOOP</div>
+      <h2 style="margin:0;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:42px;line-height:1.1;letter-spacing:-.02em">Run your science on recursive AI.</h2>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#828da9;max-width:520px">We're onboarding a small cohort of bio &amp; chemical labs to the early pilot. Bring a problem; leave with a loop.</p>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:6px">
+        <a href="#early-pilot" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#07120c;background:#37f0a0;border-radius:9px;padding:14px 26px;text-decoration:none;font-weight:600" style-hover="background:#5cf5b4">REQUEST EARLY PILOT</a>
+        <a href="#early-pilot" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#e8ecf6;border:1px solid rgba(126,146,196,.3);border-radius:9px;padding:13px 22px;text-decoration:none" style-hover="border-color:rgba(89,216,255,.55)">READ THE RESEARCH →</a>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:88px auto 0;padding-top:26px;border-top:1px solid rgba(126,146,196,.1);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:#4a5578">
+      <div style="display:flex;align-items:center;gap:9px;color:#828da9">
+        <svg width="14" height="16" viewBox="0 0 20 22" fill="none"><path d="M4 1 C16 5,16 9,4 13 C16 17,16 20,4 21" stroke="#37f0a0" stroke-width="1.6" stroke-linecap="round"></path><path d="M16 1 C4 5,4 9,16 13 C4 17,4 20,16 21" stroke="#ff5c9a" stroke-width="1.6" stroke-linecap="round" opacity=".85"></path></svg>
+        LUMINLAB
+      </div>
+      <div>© 2026 · AI INFRASTRUCTURE FOR BIO-CHEMICAL SCIENCE</div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;demoLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;showcase&quot;,&quot;options&quot;:[&quot;showcase&quot;,&quot;rows&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Demo section&quot;},&quot;spin&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.04,&quot;min&quot;:0,&quot;max&quot;:0.5,&quot;step&quot;:0.02,&quot;unit&quot;:&quot;rad/s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;bands&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:16,&quot;min&quot;:1,&quot;max&quot;:16,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;grow&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.45,&quot;min&quot;:0.1,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;hud&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;letters&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;cells&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;hexes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;strands&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;artifactCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:16,&quot;min&quot;:0,&quot;max&quot;:30,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;artifactSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;}}">
+class Component extends DCLogic {
+  state = { activeDemo: 0 };
+
+  componentDidMount(){ this._syncVideos(); }
+  componentDidUpdate(){ this._syncVideos(); }
+  _syncVideos(){
+    requestAnimationFrame(()=>{
+      document.querySelectorAll('video[data-demo]').forEach(v=>{
+        v.muted = true;
+        const p = v.play();
+        if(p && p.catch) p.catch(()=>{});
+      });
+    });
+  }
+
+  renderVals(){
+    const p = this.props;
+    const layout = p.demoLayout ?? 'showcase';
+    const act = this.state.activeDemo;
+
+    const base = [
+      { name:'Microscopy', tag:'Cell & object segmentation',
+        desc:'Instance segmentation that finds and outlines every cell or object in your imaging data — no manual masks, no per-assay tuning.',
+        video:'uploads/dark_target_segmentation_demo.mp4', color:'#37f0a0',
+        tags:['SEGMENTATION','MICROSCOPY','VISION'] },
+      { name:'Behaviour Analysis', tag:'Markerless keypoint tracking',
+        desc:'Track pose and keypoints across species straight from raw video. Train once, then follow any organism through any behavior.',
+        video:'uploads/bee_keypoint_tracking_demo.mp4', color:'#59d8ff',
+        tags:['POSE','TRACKING','BEHAVIOR'] },
+      { name:'Single Cell Seq Analysis', tag:'Batch-effect correction',
+        desc:'Diagnose and correct batch effects in sequencing and expression data so real biological signal survives integration.',
+        video:'uploads/dna_batch_effect_removal_demo.mp4', color:'#ff5c9a',
+        tags:['OMICS','QC','NORMALIZATION'] },
+      { name:'PK/PD Analysis', tag:'Automated pharmacokinetics',
+        desc:'Fit concentration–time curves and derive PK parameters automatically, with model selection and QC built in.',
+        video:'uploads/auto_pk_analysis_demo.mp4', color:'#ffb454',
+        tags:['PK/PD','FITTING','ADME'] },
+    ];
+
+    const hexA = (hex, a)=>{
+      const n = parseInt(hex.slice(1),16);
+      return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+    };
+
+    const n = base.length;
+    const demos = base.map((d,i)=>{
+      let off = i - act;
+      if(off >  n/2) off -= n;
+      if(off < -n/2) off += n;
+      let frameStyle;
+      if(off===0)       frameStyle='transform:translateX(0) scale(1);opacity:1;z-index:3;cursor:default';
+      else if(off===1)  frameStyle='transform:translateX(62%) scale(.8);opacity:.3;z-index:2;filter:saturate(.5) brightness(.78);cursor:pointer';
+      else if(off===-1) frameStyle='transform:translateX(-62%) scale(.8);opacity:.3;z-index:2;filter:saturate(.5) brightness(.78);cursor:pointer';
+      else              frameStyle='transform:translateX(0) scale(.66);opacity:0;z-index:1;pointer-events:none';
+      return {
+        ...d,
+        n: String(i+1).padStart(2,'0'),
+        active: i===act,
+        onSelect: ()=> this.setState({ activeDemo: i }),
+        glowInset: hexA(d.color,0.35),
+        rowDir: i%2===1 ? 'rtl' : 'ltr',
+        frameStyle,
+        dotW: i===act ? '30px' : '8px',
+        dotBg: i===act ? d.color : 'rgba(126,146,196,0.3)',
+      };
+    });
+
+    return {
+      demos,
+      active: demos[act],
+      goPrev: ()=> this.setState(s=>({ activeDemo: (s.activeDemo - 1 + n) % n })),
+      goNext: ()=> this.setState(s=>({ activeDemo: (s.activeDemo + 1) % n })),
+      isShowcase: layout==='showcase',
+      isRows: layout==='rows',
+      spin: p.spin ?? 0.14,
+      hudAttr: (p.hud ?? true) ? '1' : '0',
+      bands: p.bands ?? 8,
+      grow: p.grow ?? 0.45,
+      lettersAttr: (p.letters ?? true) ? '1' : '0',
+      artifacts: [ (p.cells??true)?'cell':null, (p.hexes??true)?'hex':null, (p.strands??true)?'strand':null ].filter(Boolean).join(',') || 'none',
+      artifactCount: p.artifactCount ?? 12,
+      artifactSpeed: p.artifactSpeed ?? 1,
+    };
+  }
+}
+</script>
+</body>
+</html>
