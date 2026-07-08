@@ -126,7 +126,7 @@ body{margin:0;background:#070a12;color:#e8ecf6;font-family:'Space Grotesk',syste
               <sc-for list="{{ demos }}" as="d" hint-placeholder-count="4">
                 <div class="demo-card" onClick="{{ d.onSelect }}" style="position:absolute;top:0;left:50%;width:768px;margin-left:-384px;height:100%;transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .5s,filter .5s;{{ d.frameStyle }}">
                   <div style="position:relative;width:100%;height:100%;border-radius:18px;overflow:hidden;border:1px solid rgba(126,146,196,.18);background:#05070d;box-shadow:0 34px 90px rgba(0,0,0,.6)">
-                    <video data-demo autoplay loop muted playsinline preload="auto" src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+                    <video data-demo data-demo-index="{{ d.index }}" data-demo-active="{{ d.activeAttr }}" autoplay loop muted playsinline preload="auto" src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
                     <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px {{ d.glowInset }}"></div>
                     <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;color:#e8ecf6;background:rgba(5,7,13,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 12px">
                       <span style="width:6px;height:6px;border-radius:50%;background:{{ d.color }};box-shadow:0 0 8px {{ d.color }}"></span>LIVE
@@ -165,7 +165,7 @@ body{margin:0;background:#070a12;color:#e8ecf6;font-family:'Space Grotesk',syste
           <sc-for list="{{ demos }}" as="d" hint-placeholder-count="4">
             <div class="demo-row" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;direction:{{ d.rowDir }}">
               <div style="direction:ltr;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid rgba(126,146,196,.16);background:#05070d;box-shadow:0 24px 64px rgba(0,0,0,.45)">
-                <video data-demo autoplay loop muted playsinline src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+                <video data-demo data-demo-index="{{ d.index }}" data-demo-active="{{ d.activeAttr }}" autoplay loop muted playsinline preload="auto" src="{{ d.video }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
                 <div style="position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px {{ d.glowInset }}"></div>
               </div>
               <div style="direction:ltr;display:flex;flex-direction:column;gap:18px">
@@ -193,10 +193,10 @@ body{margin:0;background:#070a12;color:#e8ecf6;font-family:'Space Grotesk',syste
   <section id="early-pilot" data-screen-label="Early pilot" style="position:relative;padding:100px 8% 120px;background:#070a12;border-top:1px solid rgba(126,146,196,.1);text-align:center">
     <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px">
       <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.24em;color:#59d8ff">JOIN THE LOOP</div>
-      <h2 style="margin:0;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:42px;line-height:1.1;letter-spacing:-.02em">Bring us your hardest bio-chemical data workflow.</h2>
-      <p style="margin:0;font-size:15px;line-height:1.65;color:#828da9;max-width:520px">We're onboarding a small cohort of bio &amp; chemical labs to the early pilot. Bring a problem; leave with a loop.</p>
+      <h2 style="margin:0;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:42px;line-height:1.1;letter-spacing:-.02em">Let us build you a custom demo.</h2>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#828da9;max-width:560px">Bring us your most annoying bio-chemical data workflow — we'll build you a solution around it.</p>
       <div class="cta-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMYH1CjfnuLyTPSCqdMqnj_7eAo3-2lLQZHwp3zUv-zLSlpA/viewform" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#07120c;background:#37f0a0;border-radius:9px;padding:14px 26px;text-decoration:none;font-weight:600" style-hover="background:#5cf5b4">Request early pilot &amp; Tell us your problem</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMYH1CjfnuLyTPSCqdMqnj_7eAo3-2lLQZHwp3zUv-zLSlpA/viewform" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;color:#07120c;background:#37f0a0;border-radius:9px;padding:14px 26px;text-decoration:none;font-weight:600" style-hover="background:#5cf5b4">Request a custom demo</a>
       </div>
     </div>
     <div style="max-width:1180px;margin:88px auto 0;padding-top:26px;border-top:1px solid rgba(126,146,196,.1);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:#4a5578">
@@ -214,18 +214,6 @@ body{margin:0;background:#070a12;color:#e8ecf6;font-family:'Space Grotesk',syste
 <script type="text/x-dc" data-dc-script data-props="{&quot;demoLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;showcase&quot;,&quot;options&quot;:[&quot;showcase&quot;,&quot;rows&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Demo section&quot;},&quot;spin&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.04,&quot;min&quot;:0,&quot;max&quot;:0.5,&quot;step&quot;:0.02,&quot;unit&quot;:&quot;rad/s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;bands&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:16,&quot;min&quot;:1,&quot;max&quot;:16,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;grow&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.45,&quot;min&quot;:0.1,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;hud&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero band&quot;},&quot;letters&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;cells&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;hexes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;strands&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;artifactCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:16,&quot;min&quot;:0,&quot;max&quot;:30,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;},&quot;artifactSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Bio artifacts&quot;}}">
 class Component extends DCLogic {
   state = { activeDemo: 0 };
-
-  componentDidMount(){ this._syncVideos(); }
-  componentDidUpdate(){ this._syncVideos(); }
-  _syncVideos(){
-    requestAnimationFrame(()=>{
-      document.querySelectorAll('video[data-demo]').forEach(v=>{
-        v.muted = true;
-        const p = v.play();
-        if(p && p.catch) p.catch(()=>{});
-      });
-    });
-  }
 
   renderVals(){
     const p = this.props;
@@ -268,8 +256,10 @@ class Component extends DCLogic {
       else              frameStyle='transform:translateX(0) scale(.66);opacity:0;z-index:1;pointer-events:none';
       return {
         ...d,
+        index: i,
         n: String(i+1).padStart(2,'0'),
         active: i===act,
+        activeAttr: i===act ? '1' : '0',
         onSelect: ()=> this.setState({ activeDemo: i }),
         glowInset: hexA(d.color,0.35),
         rowDir: i%2===1 ? 'rtl' : 'ltr',
@@ -297,6 +287,55 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+(() => {
+  const restart = (v) => {
+    const seek = () => { try { v.currentTime = 0; } catch(_e) {} };
+    if(v.readyState > 0) seek();
+    else v.addEventListener('loadedmetadata', seek, { once:true });
+  };
+  const ensureLoopFallback = (v) => {
+    if(v.__luminLoopFallback) return;
+    v.__luminLoopFallback = true;
+    v.addEventListener('ended', () => {
+      restart(v);
+      const p = v.play();
+      if(p && p.catch) p.catch(() => {});
+    });
+  };
+  const syncDemoVideos = () => {
+    const videos = [...document.querySelectorAll('video[data-demo]')];
+    if(!videos.length) return;
+    const activeVideo = videos.find(v => v.dataset.demoActive === '1') || videos[0];
+    videos.forEach((v) => {
+      const isActive = v === activeVideo;
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.setAttribute('muted','');
+      v.setAttribute('loop','');
+      v.setAttribute('playsinline','');
+      ensureLoopFallback(v);
+      if(isActive){
+        if(v.__luminWasActive !== true) restart(v);
+        const p = v.play();
+        if(p && p.catch) p.catch(() => {});
+      } else {
+        v.pause();
+        restart(v);
+      }
+      v.__luminWasActive = isActive;
+    });
+  };
+  window.__luminSyncDemoVideos = syncDemoVideos;
+  const observer = new MutationObserver(syncDemoVideos);
+  observer.observe(document.documentElement, { subtree:true, childList:true, attributes:true, attributeFilter:['data-demo-active'] });
+  document.addEventListener('DOMContentLoaded', syncDemoVideos);
+  window.addEventListener('load', syncDemoVideos);
+  setInterval(syncDemoVideos, 1000);
+  syncDemoVideos();
+})();
 </script>
 </body>
 </html>
